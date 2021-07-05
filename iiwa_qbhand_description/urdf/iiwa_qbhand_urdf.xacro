@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
-<!-- Here we define the robot, we named it "iiwa7_tool" -->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iiwa7_tool">
+<!-- Here we define the robot, we named it "iiwa7_qbhand" -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iiwa7_qbhand">
   
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro" />
@@ -44,27 +44,27 @@
     <origin xyz="0 0 0.84" rpy="0 0 0"/>
   </xacro:iiwa7>
   
-  <!-- Tool properties -->
-  <property name="tool_mass" value="0.200" />
-  <property name="tool_joint_offset" value="0.00 0.00 0.00" />
-  <property name="tool_link_offset" value="0.00 0.00 0.1275" />
+  <!-- qbhand properties -->
+  <property name="qbhand_mass" value="0.200" />
+  <property name="qbhand_joint_offset" value="0.00 0.00 0.00" />
+  <property name="qbhand_link_offset" value="0.00 0.00 0.1275" />
   
-  <!--  Here we define a dummy joint between the tip of the iiwa7 and the base of the tool. 
-  There is no offset between the two, that means the tool is attached at the robot flange. -->
-  <joint name="tool_joint" type="fixed">
+  <!--  Here we define a dummy joint between the tip of the iiwa7 and the base of the qbhand. 
+  There is no offset between the two, that means the qbhand is attached at the robot flange. -->
+  <joint name="qbhand_joint" type="fixed">
     <parent link="iiwa_link_ee" />
-    <child link = "tool_link" />
-    <!-- <origin xyz="${tool_joint_offset}" rpy="0 ${PI/2.0} 0" />   -->
-    <origin xyz="${tool_joint_offset}" rpy="0 0 0" />  
+    <child link = "qbhand_link" />
+    <!-- <origin xyz="${qbhand_joint_offset}" rpy="0 ${PI/2.0} 0" />   -->
+    <origin xyz="${qbhand_joint_offset}" rpy="0 0 0" />  
   </joint>
   
-  <!-- Here we define the geometry of the tool. We designed the tool ourselves, so we have a mesh file that represents it.   
+  <!-- Here we define the geometry of the qbhand. We designed the qbhand ourselves, so we have a mesh file that represents it.   
   Else, one can define it using a geometric representation that approximate it, like a cylinder (see commented lines) -->
-  <link name="tool_link">
+  <link name="qbhand_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	<mesh filename="package://iiwa_tool_description/meshes/visual/tool.stl"/>
+	<mesh filename="package://iiwa_qbhand_description/meshes/visual/qbhand.stl"/>
 	<!-- 	<cylinder length="0.1275" radius="0.020"/> -->
       </geometry>
       <material name="Grey"/>
@@ -72,20 +72,20 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-	<mesh filename="package://iiwa_tool_description/meshes/visual/tool.stl"/>
+	<mesh filename="package://iiwa_qbhand_description/meshes/visual/qbhand.stl"/>
 	<!-- 	<cylinder length="0.1275" radius="0.020"/> -->
       </geometry>
       <material name="Grey"/>
     </collision>
   </link>
   
-  <!--  Here we define another dummy joint. It is placed at the end of the tool, so we can then attach a frame at its TCP for control -->
-  <joint name="tool_tip_joint" type="fixed">
-    <parent link="tool_link" />
-    <child link = "tool_link_ee" />
-    <origin xyz="${tool_link_offset}" rpy="0 0 0" />   
+  <!--  Here we define another dummy joint. It is placed at the end of the qbhand, so we can then attach a frame at its TCP for control -->
+  <joint name="qbhand_tip_joint" type="fixed">
+    <parent link="qbhand_link" />
+    <child link = "qbhand_link_ee" />
+    <origin xyz="${qbhand_link_offset}" rpy="0 0 0" />   
   </joint>
   
   <!--  The TCP frame is here defined -->
-  <link name="tool_link_ee"/>
+  <link name="qbhand_link_ee"/>
 </robot> 

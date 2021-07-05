@@ -50,18 +50,18 @@
     
     <!-- Load move_group -->
     <group ns="$(arg robot_name)">
-        <include file="$(find iiwa_tool_moveit)/launch/move_group.launch">
+        <include file="$(find iiwa_qbhand_moveit)/launch/move_group.launch">
             <arg name="publish_monitored_planning_scene" value="true" />
             <arg name="hardware_interface" value="$(arg hardware_interface)"/>
             <arg name="robot_name" value="$(arg robot_name)"/>
             <arg name="model" value="$(arg model)" />
         </include>
         
-        <include if="$(arg rviz)" file="$(find iiwa_tool_moveit)/launch/moveit_rviz.launch">
+        <include if="$(arg rviz)" file="$(find iiwa_qbhand_moveit)/launch/moveit_rviz.launch">
             <arg name="config" value="true"/>
         </include>
     </group>
     
-    <include file="$(find iiwa_tool_moveit)/launch/default_warehouse_db.launch" />
+    <include file="$(find iiwa_qbhand_moveit)/launch/default_warehouse_db.launch" />
     
 </launch>

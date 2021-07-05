@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>iiwa_tool_description</name>
+  <name>iiwa_qbhand_description</name>
   <version>0.0.0</version>
-  <description>The iiwa_tool_description package</description>
+  <description>The iiwa_qbhand_description package</description>
 
   <maintainer email="salvo.virga@tum.de">Salvo Virga</maintainer>
 

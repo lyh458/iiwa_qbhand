@@ -1,14 +1,14 @@
 <package>
-  <name>iiwa_tool_examples</name>
+  <name>iiwa_qbhand_examples</name>
   <version>0.0.0</version>
-  <description>The iiwa_tool_examples package</description>
+  <description>The iiwa_qbhand_examples package</description>
   <author email="salvo.virga@tum.de">Salvo Virga</author>
   <maintainer email="salvo.virga@tum.de">Salvo Virga</maintainer>
 
   <license>BSD</license>
 
-  <run_depend>iiwa_tool_description</run_depend>
-  <run_depend>iiwa_tool_moveit</run_depend>
+  <run_depend>iiwa_qbhand_description</run_depend>
+  <run_depend>iiwa_qbhand_moveit</run_depend>
   <run_depend>moveit_core</run_depend>
   <run_depend>moveit_ros_planning_interface</run_depend>
   <run_depend>moveit_ros_planning</run_depend>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(iiwa_tool_examples)
+project(iiwa_qbhand_examples)
 
 set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 SET(CMAKE_BUILD_TYPE "RelWithDebInfo")

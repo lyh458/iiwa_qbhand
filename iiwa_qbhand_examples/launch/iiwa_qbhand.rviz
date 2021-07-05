@@ -12,12 +12,12 @@ Panels:
     Tree Height: 744
   - Class: rviz/Selection
     Name: Selection
-  - Class: rviz/Tool Properties
+  - Class: rviz/qbhand Properties
     Expanded:
       - /2D Pose Estimate1
       - /2D Nav Goal1
       - /Publish Point1
-    Name: Tool Properties
+    Name: qbhand Properties
     Splitter Ratio: 0.588679
   - Class: rviz/Views
     Expanded:
@@ -108,16 +108,16 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        tool_link:
+        qbhand_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        tool_link_ee:
+        qbhand_link_ee:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        tool_link_ee_kuka:
+        qbhand_link_ee_kuka:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -140,7 +140,7 @@ Visualization Manager:
     Fixed Frame: world
     Frame Rate: 30
   Name: root
-  Tools:
+  qbhands:
     - Class: rviz/Interact
       Hide Inactive Objects: true
     - Class: rviz/MoveCamera
@@ -186,7 +186,7 @@ Window Geometry:
     collapsed: false
   Time:
     collapsed: false
-  Tool Properties:
+  qbhand Properties:
     collapsed: false
   Views:
     collapsed: false

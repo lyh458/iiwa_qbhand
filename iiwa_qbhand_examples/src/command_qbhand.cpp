@@ -64,7 +64,7 @@ int main (int argc, char **argv) {
 			if (use_cartesian_command) {
         while (!iiwa_pose_state.isConnected()) {}
         command_cartesian_position = iiwa_pose_state.getPose();
-				// Here we set the new commanded cartesian position, we just move the tool TCP 10 centemeters down and back up, every 10 seconds.
+				// Here we set the new commanded cartesian position, we just move the qbhand TCP 10 centemeters down and back up, every 10 seconds.
 				command_cartesian_position.poseStamped.pose.position.z -= direction * 0.10;
 				iiwa_pose_command.setPose(command_cartesian_position.poseStamped);
 			} else {
