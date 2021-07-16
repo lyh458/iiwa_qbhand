@@ -648,9 +648,9 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: /world
+    Fixed Frame: world
   Name: root
-  qbhands:
+  Tools:
     - Class: rviz/Interact
       Hide Inactive Objects: true
     - Class: rviz/MoveCamera

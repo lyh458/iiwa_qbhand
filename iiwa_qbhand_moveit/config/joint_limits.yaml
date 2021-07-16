@@ -37,3 +37,173 @@ joint_limits:
     max_velocity: 10
     has_acceleration_limits: false
     max_acceleration: 0
+  qbhand_index_distal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_index_distal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_index_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_index_middle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_index_middle_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_index_proximal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_index_proximal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_little_distal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_little_distal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_little_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_little_middle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_little_middle_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_little_proximal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_little_proximal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_middle_distal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_middle_distal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_middle_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_middle_middle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_middle_middle_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_middle_proximal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_middle_proximal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_ring_distal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_ring_distal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_ring_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_ring_middle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_ring_middle_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_ring_proximal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_ring_proximal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_synergy_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_thumb_distal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_thumb_distal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_thumb_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_thumb_proximal_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0
+  qbhand_thumb_proximal_virtual_joint:
+    has_velocity_limits: true
+    max_velocity: 100
+    has_acceleration_limits: false
+    max_acceleration: 0

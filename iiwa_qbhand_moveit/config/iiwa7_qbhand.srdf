@@ -9,43 +9,566 @@
     <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
-    <group name="manipulator">
-        <chain base_link="iiwa_link_0" tip_link="qbhand_link_ee" />
+    <group name="manipulaor">
+        <joint name="world_iiwa_joint" />
+        <joint name="iiwa_joint_1" />
+        <joint name="iiwa_joint_2" />
+        <joint name="iiwa_joint_3" />
+        <joint name="iiwa_joint_4" />
+        <joint name="iiwa_joint_5" />
+        <joint name="iiwa_joint_6" />
+        <joint name="iiwa_joint_7" />
+        <joint name="iiwa_joint_ee" />
     </group>
+    <group name="gripper">
+        <joint name="iiwa_qbhand_joint" />
+        <joint name="qbhand_base_fixed_joint" />
+        <joint name="qbhand_palm_fixed_joint" />
+        <joint name="qbhand_index_knuckle_joint" />
+        <joint name="qbhand_index_proximal_joint" />
+        <joint name="qbhand_index_proximal_virtual_joint" />
+        <joint name="qbhand_index_middle_joint" />
+        <joint name="qbhand_index_middle_virtual_joint" />
+        <joint name="qbhand_index_distal_joint" />
+        <joint name="qbhand_index_distal_virtual_joint" />
+        <joint name="qbhand_little_knuckle_joint" />
+        <joint name="qbhand_little_proximal_joint" />
+        <joint name="qbhand_little_proximal_virtual_joint" />
+        <joint name="qbhand_little_middle_joint" />
+        <joint name="qbhand_little_middle_virtual_joint" />
+        <joint name="qbhand_little_distal_joint" />
+        <joint name="qbhand_little_distal_virtual_joint" />
+        <joint name="qbhand_middle_knuckle_joint" />
+        <joint name="qbhand_middle_proximal_joint" />
+        <joint name="qbhand_middle_proximal_virtual_joint" />
+        <joint name="qbhand_middle_middle_joint" />
+        <joint name="qbhand_middle_middle_virtual_joint" />
+        <joint name="qbhand_middle_distal_joint" />
+        <joint name="qbhand_middle_distal_virtual_joint" />
+        <joint name="qbhand_ring_knuckle_joint" />
+        <joint name="qbhand_ring_proximal_joint" />
+        <joint name="qbhand_ring_proximal_virtual_joint" />
+        <joint name="qbhand_ring_middle_joint" />
+        <joint name="qbhand_ring_middle_virtual_joint" />
+        <joint name="qbhand_ring_distal_joint" />
+        <joint name="qbhand_ring_distal_virtual_joint" />
+        <joint name="qbhand_synergy_joint" />
+        <joint name="qbhand_thumb_knuckle_joint" />
+        <joint name="qbhand_thumb_proximal_joint" />
+        <joint name="qbhand_thumb_proximal_virtual_joint" />
+        <joint name="qbhand_thumb_distal_joint" />
+        <joint name="qbhand_thumb_distal_virtual_joint" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="home" group="manipulaor">
+        <joint name="iiwa_joint_1" value="0" />
+        <joint name="iiwa_joint_2" value="0" />
+        <joint name="iiwa_joint_3" value="0" />
+        <joint name="iiwa_joint_4" value="0" />
+        <joint name="iiwa_joint_5" value="0" />
+        <joint name="iiwa_joint_6" value="0" />
+        <joint name="iiwa_joint_7" value="0" />
+    </group_state>
+    <group_state name="horizontal" group="manipulaor">
+        <joint name="iiwa_joint_1" value="0" />
+        <joint name="iiwa_joint_2" value="1.57" />
+        <joint name="iiwa_joint_3" value="0" />
+        <joint name="iiwa_joint_4" value="0" />
+        <joint name="iiwa_joint_5" value="0" />
+        <joint name="iiwa_joint_6" value="0" />
+        <joint name="iiwa_joint_7" value="0" />
+    </group_state>
+    <group_state name="shakehand_high" group="manipulaor">
+        <joint name="iiwa_joint_1" value="0" />
+        <joint name="iiwa_joint_2" value="0.785" />
+        <joint name="iiwa_joint_3" value="0" />
+        <joint name="iiwa_joint_4" value="-0.785" />
+        <joint name="iiwa_joint_5" value="0" />
+        <joint name="iiwa_joint_6" value="0" />
+        <joint name="iiwa_joint_7" value="0" />
+    </group_state>
+    <group_state name="shakehand_low" group="manipulaor">
+        <joint name="iiwa_joint_1" value="0" />
+        <joint name="iiwa_joint_2" value="0.785" />
+        <joint name="iiwa_joint_3" value="0" />
+        <joint name="iiwa_joint_4" value="-1.57" />
+        <joint name="iiwa_joint_5" value="0" />
+        <joint name="iiwa_joint_6" value="-0.785" />
+        <joint name="iiwa_joint_7" value="0" />
+    </group_state>
+    <group_state name="open" group="gripper">
+        <joint name="qbhand_index_distal_joint" value="0" />
+        <joint name="qbhand_index_distal_virtual_joint" value="0" />
+        <joint name="qbhand_index_knuckle_joint" value="0" />
+        <joint name="qbhand_index_middle_joint" value="0" />
+        <joint name="qbhand_index_middle_virtual_joint" value="0" />
+        <joint name="qbhand_index_proximal_joint" value="0" />
+        <joint name="qbhand_index_proximal_virtual_joint" value="0" />
+        <joint name="qbhand_little_distal_joint" value="0" />
+        <joint name="qbhand_little_distal_virtual_joint" value="0" />
+        <joint name="qbhand_little_knuckle_joint" value="0" />
+        <joint name="qbhand_little_middle_joint" value="0" />
+        <joint name="qbhand_little_middle_virtual_joint" value="0" />
+        <joint name="qbhand_little_proximal_joint" value="0" />
+        <joint name="qbhand_little_proximal_virtual_joint" value="0" />
+        <joint name="qbhand_middle_distal_joint" value="0" />
+        <joint name="qbhand_middle_distal_virtual_joint" value="0" />
+        <joint name="qbhand_middle_knuckle_joint" value="0" />
+        <joint name="qbhand_middle_middle_joint" value="0" />
+        <joint name="qbhand_middle_middle_virtual_joint" value="0" />
+        <joint name="qbhand_middle_proximal_joint" value="0" />
+        <joint name="qbhand_middle_proximal_virtual_joint" value="0" />
+        <joint name="qbhand_ring_distal_joint" value="0" />
+        <joint name="qbhand_ring_distal_virtual_joint" value="0" />
+        <joint name="qbhand_ring_knuckle_joint" value="0" />
+        <joint name="qbhand_ring_middle_joint" value="0" />
+        <joint name="qbhand_ring_middle_virtual_joint" value="0" />
+        <joint name="qbhand_ring_proximal_joint" value="0" />
+        <joint name="qbhand_ring_proximal_virtual_joint" value="0" />
+        <joint name="qbhand_synergy_joint" value="0" />
+        <joint name="qbhand_thumb_distal_joint" value="0" />
+        <joint name="qbhand_thumb_distal_virtual_joint" value="0" />
+        <joint name="qbhand_thumb_knuckle_joint" value="0" />
+        <joint name="qbhand_thumb_proximal_joint" value="0" />
+        <joint name="qbhand_thumb_proximal_virtual_joint" value="0" />
+    </group_state>
+    <group_state name="close" group="gripper">
+        <joint name="qbhand_index_distal_joint" value="0" />
+        <joint name="qbhand_index_distal_virtual_joint" value="0" />
+        <joint name="qbhand_index_knuckle_joint" value="0" />
+        <joint name="qbhand_index_middle_joint" value="0" />
+        <joint name="qbhand_index_middle_virtual_joint" value="0" />
+        <joint name="qbhand_index_proximal_joint" value="0" />
+        <joint name="qbhand_index_proximal_virtual_joint" value="0" />
+        <joint name="qbhand_little_distal_joint" value="0" />
+        <joint name="qbhand_little_distal_virtual_joint" value="0" />
+        <joint name="qbhand_little_knuckle_joint" value="0" />
+        <joint name="qbhand_little_middle_joint" value="0" />
+        <joint name="qbhand_little_middle_virtual_joint" value="0" />
+        <joint name="qbhand_little_proximal_joint" value="0" />
+        <joint name="qbhand_little_proximal_virtual_joint" value="0" />
+        <joint name="qbhand_middle_distal_joint" value="0" />
+        <joint name="qbhand_middle_distal_virtual_joint" value="0" />
+        <joint name="qbhand_middle_knuckle_joint" value="0" />
+        <joint name="qbhand_middle_middle_joint" value="0" />
+        <joint name="qbhand_middle_middle_virtual_joint" value="0" />
+        <joint name="qbhand_middle_proximal_joint" value="0" />
+        <joint name="qbhand_middle_proximal_virtual_joint" value="0" />
+        <joint name="qbhand_ring_distal_joint" value="0" />
+        <joint name="qbhand_ring_distal_virtual_joint" value="0" />
+        <joint name="qbhand_ring_knuckle_joint" value="0" />
+        <joint name="qbhand_ring_middle_joint" value="0" />
+        <joint name="qbhand_ring_middle_virtual_joint" value="0" />
+        <joint name="qbhand_ring_proximal_joint" value="0" />
+        <joint name="qbhand_ring_proximal_virtual_joint" value="0" />
+        <joint name="qbhand_synergy_joint" value="0.5" />
+        <joint name="qbhand_thumb_distal_joint" value="0" />
+        <joint name="qbhand_thumb_distal_virtual_joint" value="0" />
+        <joint name="qbhand_thumb_knuckle_joint" value="0" />
+        <joint name="qbhand_thumb_proximal_joint" value="0" />
+        <joint name="qbhand_thumb_proximal_virtual_joint" value="0" />
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="gripper" parent_link="iiwa_link_ee" group="gripper" parent_group="manipulaor" />
+    <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
+    <passive_joint name="qbhand_index_knuckle_joint" />
+    <passive_joint name="qbhand_index_proximal_joint" />
+    <passive_joint name="qbhand_index_proximal_virtual_joint" />
+    <passive_joint name="qbhand_index_middle_joint" />
+    <passive_joint name="qbhand_index_middle_virtual_joint" />
+    <passive_joint name="qbhand_index_distal_joint" />
+    <passive_joint name="qbhand_index_distal_virtual_joint" />
+    <passive_joint name="qbhand_little_knuckle_joint" />
+    <passive_joint name="qbhand_little_proximal_joint" />
+    <passive_joint name="qbhand_little_proximal_virtual_joint" />
+    <passive_joint name="qbhand_little_middle_joint" />
+    <passive_joint name="qbhand_little_middle_virtual_joint" />
+    <passive_joint name="qbhand_little_distal_joint" />
+    <passive_joint name="qbhand_little_distal_virtual_joint" />
+    <passive_joint name="qbhand_middle_knuckle_joint" />
+    <passive_joint name="qbhand_middle_proximal_joint" />
+    <passive_joint name="qbhand_middle_proximal_virtual_joint" />
+    <passive_joint name="qbhand_middle_middle_joint" />
+    <passive_joint name="qbhand_middle_middle_virtual_joint" />
+    <passive_joint name="qbhand_middle_distal_joint" />
+    <passive_joint name="qbhand_middle_distal_virtual_joint" />
+    <passive_joint name="qbhand_ring_knuckle_joint" />
+    <passive_joint name="qbhand_ring_proximal_joint" />
+    <passive_joint name="qbhand_ring_proximal_virtual_joint" />
+    <passive_joint name="qbhand_ring_middle_joint" />
+    <passive_joint name="qbhand_ring_middle_virtual_joint" />
+    <passive_joint name="qbhand_ring_distal_joint" />
+    <passive_joint name="qbhand_ring_distal_virtual_joint" />
+    <passive_joint name="qbhand_thumb_knuckle_joint" />
+    <passive_joint name="qbhand_thumb_proximal_joint" />
+    <passive_joint name="qbhand_thumb_proximal_virtual_joint" />
+    <passive_joint name="qbhand_thumb_distal_joint" />
+    <passive_joint name="qbhand_thumb_distal_virtual_joint" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="iiwa_link_0" link2="iiwa_link_1" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_0" link2="iiwa_link_2" reason="Never" />
     <disable_collisions link1="iiwa_link_0" link2="iiwa_link_3" reason="Never" />
     <disable_collisions link1="iiwa_link_0" link2="iiwa_link_4" reason="Never" />
-    <disable_collisions link1="iiwa_link_0" link2="world" reason="Adjacent" />
+    <disable_collisions link1="iiwa_link_0" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_0" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_0" link2="qbhand_thumb_proximal_link" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_2" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_3" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_4" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_5" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_1" link2="world" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_base_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_index_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="qbhand_thumb_proximal_link" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_3" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_4" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_5" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_2" link2="qbhand_link" reason="Never" />
-    <disable_collisions link1="iiwa_link_2" link2="world" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_base_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_index_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_index_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="qbhand_thumb_proximal_link" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_4" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_5" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_3" link2="qbhand_link" reason="Never" />
-    <disable_collisions link1="iiwa_link_3" link2="world" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_base_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_index_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_index_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="qbhand_thumb_proximal_link" reason="Never" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_5" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_4" link2="qbhand_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_base_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_index_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_index_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_4" link2="qbhand_thumb_proximal_link" reason="Never" />
     <disable_collisions link1="iiwa_link_5" link2="iiwa_link_6" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_5" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_5" link2="qbhand_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_base_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_index_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_index_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_5" link2="qbhand_thumb_proximal_link" reason="Never" />
     <disable_collisions link1="iiwa_link_6" link2="iiwa_link_7" reason="Adjacent" />
-    <disable_collisions link1="iiwa_link_6" link2="qbhand_link" reason="Never" />
-    <disable_collisions link1="iiwa_link_7" link2="qbhand_link" reason="Adjacent" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_base_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_index_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_index_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_6" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_base_link" reason="Adjacent" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_index_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_index_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="iiwa_link_7" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_index_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_index_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_palm_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_base_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_index_middle_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_index_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_distal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_index_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_index_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_palm_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_knuckle_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_index_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_middle_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_little_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_little_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_index_proximal_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_little_middle_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_little_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_distal_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_little_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_little_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_palm_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_knuckle_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_little_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_middle_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_middle_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_middle_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_little_proximal_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_distal_link" link2="qbhand_middle_middle_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_middle_distal_link" link2="qbhand_middle_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_distal_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_distal_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_distal_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_distal_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_distal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_distal_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_middle_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_middle_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_palm_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_knuckle_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_middle_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_middle_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_proximal_link" link2="qbhand_palm_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_proximal_link" link2="qbhand_ring_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_proximal_link" link2="qbhand_ring_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_proximal_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_proximal_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_proximal_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_proximal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_middle_proximal_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_palm_link" link2="qbhand_ring_knuckle_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_palm_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_palm_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_palm_link" link2="qbhand_thumb_knuckle_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_palm_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_distal_link" link2="qbhand_ring_middle_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_ring_distal_link" link2="qbhand_ring_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_distal_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_distal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_distal_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_knuckle_link" link2="qbhand_ring_middle_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_knuckle_link" link2="qbhand_ring_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_ring_knuckle_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_knuckle_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_knuckle_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_middle_link" link2="qbhand_ring_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_ring_middle_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_middle_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_middle_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_proximal_link" link2="qbhand_thumb_distal_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_proximal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_ring_proximal_link" link2="qbhand_thumb_proximal_link" reason="Never" />
+    <disable_collisions link1="qbhand_thumb_distal_link" link2="qbhand_thumb_knuckle_link" reason="Never" />
+    <disable_collisions link1="qbhand_thumb_distal_link" link2="qbhand_thumb_proximal_link" reason="Adjacent" />
+    <disable_collisions link1="qbhand_thumb_knuckle_link" link2="qbhand_thumb_proximal_link" reason="Adjacent" />
 </robot>

@@ -1,0 +1,58 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/lyh/Codes/robot_ws/devel/include/**",
+        "/home/lyh/Codes/calibration_ws/devel/include/**",
+        "/home/lyh/Codes/safety_hrc_ws/devel/include/**",
+        "/home/lyh/Codes/hri_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/lyh/Codes/calibration_ws/src/aruco_ros/aruco/include/**",
+        "/home/lyh/Codes/calibration_ws/src/aruco_ros/aruco_ros/include/**",
+        "/home/lyh/Codes/catkin_ws/src/beginner_tutorials/include/**",
+        "/home/lyh/Codes/robot_ws/src/Universal_Robots_ROS_Driver/controller_stopper/include/**",
+        "/home/lyh/Codes/safety_hrc_ws/src/pre_collision_free/human_robot_safety_through_motion_control/dynamical_system_modulation/include/**",
+        "/home/lyh/Codes/calibration_ws/src/easy_aruco/include/**",
+        "/home/lyh/Codes/calibration_ws/src/freenect_stack/freenect_camera/include/**",
+        "/home/lyh/Codes/safety_hrc_ws/src/pre_collision_free/human_robot_safety_through_motion_planning/include/**",
+        "/home/lyh/Codes/robot_ws/src/iiwa_stack/iiwa_hw/include/**",
+        "/home/lyh/Codes/robot_ws/src/iiwa_stack/iiwa_ros/include/**",
+        "/home/lyh/Codes/hri_ws/src/intprim_framework_ros/include/**",
+        "/home/lyh/Codes/hri_ws/src/irl_robot_drivers/include/**",
+        "/home/lyh/Codes/calibration_ws/src/iai_kinect2/kinect2_bridge/include/**",
+        "/home/lyh/Codes/calibration_ws/src/iai_kinect2/kinect2_calibration/include/**",
+        "/home/lyh/Codes/calibration_ws/src/iai_kinect2/kinect2_registration/include/**",
+        "/home/lyh/Codes/safety_hrc_ws/src/kinects_human_tracking/include/**",
+        "/home/lyh/Codes/robot_ws/src/pilz_robots/pilz_control/include/**",
+        "/home/lyh/Codes/robot_ws/src/pilz_robots/pilz_common/pilz_industrial_motion_testutils/include/**",
+        "/home/lyh/Codes/robot_ws/src/pilz_robots/pilz_common/pilz_testutils/include/**",
+        "/home/lyh/Codes/robot_ws/src/pilz_robots/pilz_common/pilz_utils/include/**",
+        "/home/lyh/Codes/robot_ws/src/pilz_robots/prbt_hardware_support/include/**",
+        "/home/lyh/Codes/robot_ws/src/pilz_robots/prbt_ikfast_manipulator_plugin/include/**",
+        "/home/lyh/Codes/robot_ws/src/pilz_robots/prbt_support/include/**",
+        "/home/lyh/Codes/robot_ws/src/qbhand/qbdevice-ros/qb_device_control/include/**",
+        "/home/lyh/Codes/robot_ws/src/qbhand/qbdevice-ros/qb_device_driver/include/**",
+        "/home/lyh/Codes/robot_ws/src/qbhand/qbdevice-ros/qb_device_hardware_interface/include/**",
+        "/home/lyh/Codes/robot_ws/src/qbhand/qbdevice-ros/qb_device_msgs/include/**",
+        "/home/lyh/Codes/robot_ws/src/qbhand/qbdevice-ros/qb_device_srvs/include/**",
+        "/home/lyh/Codes/robot_ws/src/qbhand/qbdevice-ros/qb_device_utils/include/**",
+        "/home/lyh/Codes/robot_ws/src/qbhand/qbhand-ros/qb_hand_hardware_interface/include/**",
+        "/home/lyh/Codes/robot_ws/src/qbhand/qbmove-ros/qb_move_hardware_interface/include/**",
+        "/home/lyh/Codes/safety_hrc_ws/src/realtime_urdf_filter/include/**",
+        "/home/lyh/Codes/safety_hrc_ws/src/pre_collision_free/human_robot_safety_through_motion_control/repulsive_field_control/include/**",
+        "/home/lyh/Codes/robot_ws/src/Universal_Robots_ROS_Driver/ur_calibration/include/**",
+        "/home/lyh/Codes/robot_ws/src/Universal_Robots_ROS_Driver/ur_controllers/include/**",
+        "/home/lyh/Codes/robot_ws/src/fmauch_universal_robot/ur_kinematics/include/**",
+        "/home/lyh/Codes/robot_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/**",
+        "/home/lyh/Codes/catkin_ws/src/using_markers/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
