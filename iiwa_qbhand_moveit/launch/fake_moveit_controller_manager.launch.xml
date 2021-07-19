@@ -1,5 +1,7 @@
 <launch>
 
+   <arg name="hardware_interface" default="PositionJointInterface"/>
+
   <!-- execute the trajectory in 'interpolate' mode or jump to goal position in 'last point' mode -->
   <arg name="execution_type" default="interpolate" />
 

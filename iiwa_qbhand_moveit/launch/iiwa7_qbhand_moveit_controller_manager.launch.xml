@@ -4,7 +4,8 @@
     if no argument is passed, moveit_simple_controller_manager will be set -->
   <arg name="moveit_controller_manager" default="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
   <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
+  <arg name="hardware_interface" default="PositionJointInterface"/>
 
   <!-- loads ros_controllers to the param server -->
-  <rosparam file="$(find iiwa_qbhand_moveit)/config/ros_controllers.yaml"/>
+  <rosparam file="$(find iiwa_qbhand_moveit)/config/$(arg hardware_interface)_controllers.yaml"/>
 </launch>
