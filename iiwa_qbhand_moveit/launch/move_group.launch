@@ -54,14 +54,14 @@
   <!-- Trajectory Execution Functionality -->
   <include ns="move_group" file="$(find iiwa_qbhand_moveit)/launch/trajectory_execution.launch.xml" if="$(arg allow_trajectory_execution)">
     <arg name="moveit_manage_controllers" value="true" />
-    <arg name="moveit_controller_manager" value="iiwa" unless="$(arg fake_execution)"/>
+    <arg name="moveit_controller_manager" value="iiwa_qbhand" unless="$(arg fake_execution)"/>
     <arg name="moveit_controller_manager" value="fake" if="$(arg fake_execution)"/>
     <arg name="hardware_interface" value="$(arg hardware_interface)"/>
   </include>
 
   <!-- Sensors Functionality -->
   <include ns="move_group" file="$(find iiwa_qbhand_moveit)/launch/sensor_manager.launch.xml" if="$(arg allow_trajectory_execution)">
-    <arg name="moveit_sensor_manager" value="iiwa7_qbhand" />
+    <arg name="moveit_sensor_manager" value="iiwa_qbhand" />
   </include>
 
   <!-- Start the actual move_group node/action server -->
