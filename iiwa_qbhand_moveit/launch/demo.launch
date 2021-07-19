@@ -5,19 +5,19 @@
   <!-- Allow user to specify database location -->
   <arg name="db_path" default="$(find iiwa_qbhand_moveit)/default_warehouse_mongo_db" />
 
+  <!-- hardware_interface to use : PositionJointInterface, EffortJointInterface, VelocityJointInterface. -->
+  <arg name="hardware_interface" default="PositionJointInterface"/>
+  <!-- name of the iiwa to use, useful in case of multiple robots. Every robot is gonna have its nodees/topics under a namespace with the same name. -->
+  <arg name="robot_name" default="iiwa"/>
+  <!-- Model of the iiwa to use : iiwa7, iiwa14 -->
+  <arg name="model" default="iiwa7"/>
+
   <!-- By default, we are not in debug mode -->
   <arg name="debug" default="false" />
 
   <remap from="robot_description" to="/$(arg robot_name)/robot_description" /> 
   <remap from="/move_group/fake_controller_joint_states" to="/$(arg robot_name)/move_group/fake_controller_joint_states" /> 
   <remap from="/get_planning_scene" to="/$(arg robot_name)/get_planning_scene" /> 
-
-  <!-- hardware_interface to use : PositionJointInterface, EffortJointInterface, VelocityJointInterface. -->
-  <arg name="hardware_interface" default="PositionJointInterface"/>
-  <!-- name of the iiwa to use, useful in case of multiple robots. Every robot is gonna have its nodees/topics under a namespace with the same name. -->
-    <arg name="robot_name" default="iiwa"/>
-  <!-- Model of the iiwa to use : iiwa7, iiwa14 -->
-  <arg name="model" default="iiwa7"/>
 
   <!--
   By default, hide joint_state_publisher's GUI
