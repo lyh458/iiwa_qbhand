@@ -11,12 +11,11 @@
   <arg name="use_rviz" default="true" doc="Choose whether or not to use rviz."/>
   <arg name="use_gui" default="true" doc="Choose whether or not to use gui."/>
 
-  <include file="$(find iiwa_qbhand_description)/launch/$(arg model)_qbhand_upload.launch"/>
+  <include file="$(find iiwa_qbhand_description)/launch/iiwa_qbhand_upload.launch" >
+    <arg name="model" value="$(arg model)" />
+  </include>
 
   <!-- bring up robot description, joint and robot state publishers (also can start rviz) -->
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
-    <param name="use_gui" value="true"/>
-  </node>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg use_gui)" />
   <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg use_gui)" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<!-- Here we define the robot, we named it "iiwa14_qbhand" -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iiwa14_qbhand">
+  
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro" />
+  <!--Import the iiwa14 macro -->
+  <xacro:include filename="$(find iiwa_description)/urdf/iiwa14.xacro"/>
+  <!-- Import the qbhand macro -->
+  <xacro:include filename="$(find qb_hand_description)/urdf/qbhand.utils.xacro"/>
+  
+  <!--  Arguments for the iiwa14 macro  -->
+  <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+  <xacro:arg name="robot_name" default="iiwa"/>
+  <xacro:arg name="iiwa_origin_xyz" default="0 0 0"/>
+  <xacro:arg name="iiwa_origin_rpy" default="0 0 0"/>
+
+    <!-- Arguments for the qbhand macro -->
+	<xacro:arg name="namespace" default="qbhand"/>
+  
+  <!-- Fix to world just for testing -->
+  <link name="world"/>
+
+    <!--iiwa-->
+  <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="world">
+    <origin xyz="$(arg iiwa_origin_xyz)" rpy="$(arg iiwa_origin_rpy)" />
+  </xacro:iiwa14>
+
+  <!--  Here we define a dummy joint between the tip of the iiwa14 and the base of the gripper. 
+  There is no offset between the two, that means the tool is attached at the robot flange. -->
+  <joint name="iiwa_qbhand_joint" type="fixed">
+    <parent link="iiwa_link_ee" />
+    <child link ="qbhand_root_link" />
+    <!-- <origin xyz="${tool_joint_offset}" rpy="0 ${PI/2.0} 0" />   -->
+    <origin xyz="0 0 0" rpy="0 0 0" />  
+  </joint>
+
+   <!--  The root/base frame of qb_hand is here defined -->
+  <link name="qbhand_root_link"/>
+
+	<xacro:build_hand_from_yaml configuration="qbhand_right" namespace="$(arg namespace)" parent="qbhand_root">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+	</xacro:build_hand_from_yaml>
+
+   <!--  The TCP frame is here defined -->
+  
+</robot> 

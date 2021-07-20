@@ -11,9 +11,10 @@
 
   <!-- Loads the URDF with the given hardware interface and robot name into the ROS Parameter Server -->
   <group if="$(arg load_robot_description)">
-    <include file="$(find iiwa_qbhand_description)/launch/$(arg model)_qbhand_upload.launch">
+    <include file="$(find iiwa_qbhand_description)/launch/iiwa_qbhand_upload.launch">
       <arg name="hardware_interface" value="$(arg hardware_interface)"/>
       <arg name="robot_name" value="$(arg robot_name)" />
+      <arg name="model" value="$(arg model)" />
     </include>
   </group>
 
