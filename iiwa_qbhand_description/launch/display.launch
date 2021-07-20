@@ -9,6 +9,7 @@
   <arg name="robot_package" value="qb_hand" doc="The base package name prefix for the robot configurations [urdf, rviz, ...]."/>
   <arg name="source_list" default="[$(arg device_name)/joint_states]" doc="The joint_states source list for the joint_state_publisher."/>
   <arg name="use_rviz" default="true" doc="Choose whether or not to use rviz."/>
+  <arg name="use_gui" default="true" doc="Choose whether or not to use gui."/>
 
   <include file="$(find iiwa_qbhand_description)/launch/$(arg model)_qbhand_upload.launch"/>
 
@@ -16,6 +17,8 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
     <param name="use_gui" value="true"/>
   </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg use_gui)" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg use_gui)" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find iiwa_qbhand_description)/launch/iiwa_qbhand.rviz" required="true" />
 </launch>
