@@ -13,7 +13,8 @@
   <group if="$(arg load_robot_description)">
     <include file="$(find iiwa_qbhand_description)/launch/iiwa_qbhand_upload.launch">
       <arg name="hardware_interface" value="$(arg hardware_interface)"/>
-      <arg name="robot_name" value="$(arg robot_name)" />
+      <!-- ``robot_name`` is fixed as ``iiwa`` to fixed [#269](https://github.com/IFL-CAMP/iiwa_stack/issues/269) -->
+      <arg name="robot_name" value="iiwa" />
       <arg name="model" value="$(arg model)" />
     </include>
   </group>
