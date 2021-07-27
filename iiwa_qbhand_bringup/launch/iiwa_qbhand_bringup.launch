@@ -1,0 +1,40 @@
+<launch>
+
+    <arg name="iiwa_namespace" default="iiwa" doc="The unique robot namespace."/>
+
+    <!-- | Parameters for iiwa | -->
+    <arg name="hardware_interface" default="PositionJointInterface"/>
+    <!-- The is gonna have its nodes/topics under a namespace with the same name. -->
+    <arg name="robot_name" default="iiwa"/>
+    <!-- Model of the iiwa to use : iiwa7, iiwa14 -->
+    <arg name="model" default="iiwa7"/>
+
+    <!-- | Parameters for gripper | -->
+    <arg name="device_name" default="qbhand" doc="The unique gripper name."/>
+    <arg name="gripper_namespace" default="~" doc="The unique gripper namespace."/>
+
+
+    <!-- Bringup qbhand driver -->
+    <include file="$(find qb_hand_moveit_config)/launch/qbhand_bringup/qbhand_bringup.launch">
+        <arg name="device_name" value="$(arg device_name)" />
+        <arg name="robot_namespace" value="$(arg gripper_namespace)" />
+    </include>
+
+    <group ns="$(arg iiwa_namespace)">
+
+        <!-- Load iiwa controllers accordingly to parameters -->
+        <include file="$(find iiwa_control)/launch/iiwa_control.launch">
+            <arg name="hardware_interface" value="$(arg hardware_interface)" />
+            <arg name="controllers" value="joint_state_controller $(arg hardware_interface)_trajectory_controller" />
+            <arg name="robot_name" value="$(arg robot_name)" />
+            <arg name="model" value="$(arg model)" />
+        </include>
+
+        <!-- Robot interface -->
+        <include file="$(find iiwa_hw)/launch/iiwa_hw.launch">
+            <arg name="hardware_interface" value="$(arg hardware_interface)" />
+        </include>
+
+    </group>
+
+</launch>

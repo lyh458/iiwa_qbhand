@@ -1,0 +1,15 @@
+<package>
+
+  <name>iiwa_qbhand_bringup</name>
+  <version>0.1.0</version>
+  <description>
+     The bringup(driver) package for iiwa and qbhand manipulator.
+  </description>
+  <author email="liyihui.ing@gmail.com">Yihui Li</author>
+  <maintainer email="liyihui.ing@gmail.com">Yihui Li</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
