@@ -4,12 +4,14 @@
 
   <arg name="hardware_interface" default="PositionJointInterface"/> 
 
-
   <arg name="execution_type" default="interpolate" />
 
   <!-- Flag indicating whether MoveIt! is allowed to load/unload  or switch controllers -->
   <arg name="moveit_manage_controllers" default="true"/>
   <param name="moveit_manage_controllers" value="$(arg moveit_manage_controllers)"/>
+
+  <arg name="device_name" default="" doc="The unique device name of gripper used in the yaml controller configurations (also in the urdf if not already specified there)."/>
+  <arg name="robot_namespace" default="$(arg device_name)" doc="The unique robot namespace."/>
 
   <!-- When determining the expected duration of a trajectory, this multiplicative factor is applied to get the allowed duration of execution -->
   <param name="trajectory_execution/allowed_execution_duration_scaling" value="1.2"/> <!-- default 1.2 -->
@@ -22,6 +24,8 @@
   <arg name="moveit_controller_manager" default="iiwa_qbhand" />
   <include file="$(find iiwa_qbhand_moveit)/launch/$(arg moveit_controller_manager)_moveit_controller_manager.launch.xml">
     <arg name="hardware_interface" value="$(arg hardware_interface)"/>
+    <arg name="device_name" value="$(arg device_name)"/>
+    <arg name="robot_namespace" value="$(arg robot_namespace)"/>
   </include>
 
 </launch>

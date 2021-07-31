@@ -6,6 +6,9 @@
   <param name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
   <arg name="hardware_interface" default="PositionJointInterface"/>
 
+  <arg name="device_name" default="" doc="The unique device name of gripper used in the yaml controller configurations (also in the urdf if not already specified there)."/>
+  <arg name="robot_namespace" default="$(arg device_name)" doc="The unique robot namespace."/>
+
   <!-- loads ros_controllers to the param server -->
-  <rosparam file="$(find iiwa_qbhand_moveit)/config/$(arg hardware_interface)_controllers.yaml"/>
+  <rosparam file="$(find iiwa_qbhand_moveit)/config/$(arg hardware_interface)_controllers.yaml" subst_value="true"/>
 </launch>

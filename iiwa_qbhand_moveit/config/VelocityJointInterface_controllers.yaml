@@ -1,5 +1,5 @@
 controller_list:
-  - name: iiwa_VelocityJointInterface_trajectory_controller
+  - name: VelocityJointInterface_trajectory_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: true
@@ -11,10 +11,10 @@ controller_list:
       - iiwa_joint_5
       - iiwa_joint_6
       - iiwa_joint_7
-  - name: qbhand_VelocityJointInterface_trajectory_controller
+  - name: /$(arg robot_namespace)/control/$(arg device_name)_synergy_trajectory_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: true
-    joints: 
-      - qbhand_synergy_joint    
+    joints:
+      - $(arg device_name)_synergy_joint
       
