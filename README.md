@@ -31,7 +31,7 @@ The rqt_graph:
 
 ![rqt_graph_real](https://cdn.jsdelivr.net/gh/lyh458/ImageRepo@main/image/1628594120308-1628594120297-iiwa_qbhand_seperated_namespace_real_rqt_graph.png)
 
-## Other Branchs
+## Other Branches
 
 This branch `master` holds iiwa and ur in two different namespace, if you prefect a unified namespace version, you can try this branch [all-in-one-namespace](https://github.com/lyh458/iiwa_qbhand/tree/all-in-one-namespace), whose almost all nodes and topics are included in a same namespace, `iiwa` by default.
 
