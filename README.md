@@ -1,11 +1,3 @@
-<!--
- * @Author: lyh458
- * @Date: 2021-07-31 14:56:41
- * @LastEditTime: 2021-07-31 17:11:20
- * @LastEditors: lyh458
- * @Description: TO DO
- * @FilePath: /safety_hrc_ws/home/lyh/Codes/gripper_ws/src/robot_with_gripper/iiwa_qbhand/README.md
--->
 # iiwa_qbhand
 
 ![iiwa_qbhand](https://cdn.jsdelivr.net/gh/lyh458/ImageRepo@main/image/1627714801339-1627714801318.png)
@@ -32,8 +24,18 @@ roslaunch iiwa_qbhand_moveit demo.launch
 - Real robot control:
 
 ```xml
-roslaunch iiwa_qbhand_moveit moveit_planning_execution.launch
+roslaunch iiwa_qbhand_moveit moveit_planning_execution.launch sim:=false
 ```
+
+The rqt_graph:
+
+![rqt_graph_real](https://cdn.jsdelivr.net/gh/lyh458/ImageRepo@main/image/1628594120308-1628594120297-iiwa_qbhand_seperated_namespace_real_rqt_graph.png)
+
+## Other Branchs
+
+This branch `master` holds iiwa and ur in two different namespace, if you prefect a unified namespace version, you can try this branch [all-in-one-namespace](https://github.com/lyh458/iiwa_qbhand/tree/all-in-one-namespace), whose almost all nodes and topics are included in a same namespace, `iiwa` by default.
+
+![rqt_graph_all-in-one-namespace](https://cdn.jsdelivr.net/gh/lyh458/ImageRepo@main/image/1628594320235-1628594320224-iiwa_qbhand_all-in-one_namespace_real_rqt_graph.png)
 
 ## TO DO
 
