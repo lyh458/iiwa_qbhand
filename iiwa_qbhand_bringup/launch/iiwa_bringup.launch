@@ -1,54 +1,48 @@
 <launch>
-    <arg name="iiwa_ns" default="iiwa" doc="The unique iiwa namespace."/>
-    <arg name="robot_ns" default="iiwa" doc="The unique iiwa and qbhand namespace."/>
 
     <!-- | Parameters for iiwa | -->
     <arg name="hardware_interface" default="PositionJointInterface"/>
     <!-- The is gonna have its nodes/topics under a namespace with the same name. -->
-    <arg name="robot_name" default="iiwa"/>
+    <arg name="iiwa_ns" default="iiwa"/>
     <!-- Model of the iiwa to use : iiwa7, iiwa14 -->
     <arg name="model" default="iiwa7"/>
     <arg name="controllers" value="joint_state_controller $(arg hardware_interface)_trajectory_controller" />
     <arg name="joint_state_frequency" default="100" />
     <arg name="robot_state_frequency" default="100" />
 
-    <group ns="$(arg robot_ns)">
-
-        <!-- We need to remove node `robot_state_publisher`, so can not include `iiwa_control.launch` directly -->
-        <!-- Load iiwa controllers accordingly to parameters -->
-        <!-- <include file="$(find iiwa_control)/launch/iiwa_control.launch">
+    <!-- We need to remove node `robot_state_publisher`, so can not include `iiwa_control.launch` directly -->
+    <!-- Load iiwa controllers accordingly to parameters -->
+    <!-- <include file="$(find iiwa_control)/launch/iiwa_control.launch">
             <arg name="hardware_interface" value="$(arg hardware_interface)" />
             <arg name="controllers" value="joint_state_controller $(arg hardware_interface)_trajectory_controller" />
-            <arg name="robot_name" value="$(arg robot_name)" />
+            <arg name="iiwa_ns" value="$(arg iiwa_ns)" />
             <arg name="model" value="$(arg model)" />
         </include> -->
 
-        <!-- vvvvv content of `iiwa_control.launch`, but remove node `robot_state_publlisher` vvvvv -->
-        <!-- Loads joint controller configurations from YAML file to parameter server -->
-        <rosparam file="$(find iiwa_control)/config/iiwa_control.yaml" command="load" />
-        <param name="/$(arg robot_name)/joint_state_controller/publish_rate" value="$(arg joint_state_frequency)" />
-        <!-- Loads the controllers -->
-        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="$(arg controllers)" />
-        <!-- ^^^^^ content of `iiwa_control.launch`, but remove node `robot_state_publlisher` ^^^^^ -->
+    <!-- vvvvv content of `iiwa_control.launch`, but remove node `robot_state_publlisher` vvvvv -->
+    <!-- Loads joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find iiwa_control)/config/iiwa_control.yaml" command="load" />
+    <param name="/$(arg iiwa_ns)/joint_state_controller/publish_rate" value="$(arg joint_state_frequency)" />
+    <!-- Loads the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="$(arg controllers)" />
+    <!-- ^^^^^ content of `iiwa_control.launch`, but remove node `robot_state_publlisher` ^^^^^ -->
 
-        <!-- Robot interface -->
-        <include file="$(find iiwa_hw)/launch/iiwa_hw.launch">
-            <arg name="hardware_interface" value="$(arg hardware_interface)" />
-        </include>
+    <!-- Robot interface -->
+    <include file="$(find iiwa_hw)/launch/iiwa_hw.launch">
+        <arg name="hardware_interface" value="$(arg hardware_interface)" />
+    </include>
 
-        <!-- We need to integate the two `/joint_states` topics published by iiwa_hw (/joint_states) and device_control (/control/joint_states),
+    <!-- We need to integate the two `/joint_states` topics published by iiwa_hw (/joint_states) and device_control (/control/joint_states),
         if we don't remap a new name for `joint_states`, the node `joint_state_publish` will publish and subscribe topic `/joint_states` simultaneously，
         see ![rqt_graph](https://cdn.jsdelivr.net/gh/lyh458/ImageRepo@main/image/1627614796407-1627614796385.png), 
         which may result in some issues, eg. the rate of `/joint_states` will be doubled  -->
-        
-        <!-- vvvvv content of `iiwa_hw.launch`, but remap `/joint_states` to `/iiwa_state/joint_states` vvvvv -->
-        <!-- <rosparam command="load" file="$(find iiwa_hw)/config/joint_names.yaml" />
+
+    <!-- vvvvv content of `iiwa_hw.launch`, but remap `/joint_states` to `/iiwa_state/joint_states` vvvvv -->
+    <!-- <rosparam command="load" file="$(find iiwa_hw)/config/joint_names.yaml" />
         <param name="interface" value="$(arg hardware_interface)"/>
         <node name="iiwa_hw" pkg="iiwa_hw" type="iiwa_hw-bin" respawn="false" output="screen">
             <remap from="joint_states" to="iiwa_state/joint_states"/>
         </node> -->
-        <!-- ^^^^^ content of `iiwa_hw.launch`, but remap `/joint_states` to `/iiwa_state/joint_states` ^^^^^ -->
-
-    </group>
+    <!-- ^^^^^ content of `iiwa_hw.launch`, but remap `/joint_states` to `/iiwa_state/joint_states` ^^^^^ -->
 
 </launch>

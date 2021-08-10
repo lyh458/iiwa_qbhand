@@ -1,13 +1,16 @@
 <launch>
 
+  <!-- | Parameters for iiwa | -->
   <arg name="hardware_interface" default="PositionJointInterface"/>
-  <arg name="robot_name" default="iiwa"/>
   <arg name="model" default="iiwa7"/>
+
+  <!-- | Parameters for qbhand | -->
+  <arg name="device_name" default="qbhand" doc="The unique device name of gripper used in the yaml controller configurations (also in the urdf if not already specified there)."/>
+  <arg name="gripper_ns" default="$(arg device_name)" doc="The unique qbhand namespace."/>
 
   <include file="$(find iiwa_qbhand_moveit)/launch/planning_context.launch">
     <arg name="load_robot_description" value="true"/>
     <arg name="hardware_interface" value="$(arg hardware_interface)"/>
-    <arg name="robot_name" value="$(arg robot_name)"/>
     <arg name="model" value="$(arg model)"/>
   </include>
 
@@ -46,9 +49,6 @@
                 " />
   -->
 
-  <arg name="device_name" default="qbhand" doc="The unique device name of gripper used in the yaml controller configurations (also in the urdf if not already specified there)."/>
-  <arg name="robot_namespace" default="$(arg device_name)" doc="The unique robot namespace."/>
-
   <!-- Planning Functionality -->
   <include ns="move_group" file="$(find iiwa_qbhand_moveit)/launch/planning_pipeline.launch.xml">
     <arg name="pipeline" value="ompl" />
@@ -63,7 +63,7 @@
     <!-- FIXME: hardcode, in order to ensure that the joint name `$(arg device_name)_synergy_joint` is same as some files in MoveIt!, -->
     <!-- which use a lot of hardcode (`device_name` is fixed as qbhand, such as qbhand_base_link) -->
     <arg name="device_name" value="qbhand"/>
-    <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+    <arg name="gripper_ns" value="$(arg gripper_ns)"/>
   </include>
 
   <!-- Sensors Functionality -->

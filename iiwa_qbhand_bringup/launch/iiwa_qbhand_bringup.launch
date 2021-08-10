@@ -1,12 +1,8 @@
 <launch>
 
-    <arg name="iiwa_ns" default="iiwa" doc="The unique iiwa namespace."/>
-    <arg name="robot_ns" default="iiwa" doc="The unique iiwa and qbhand namespace."/>
-
     <!-- | Parameters for iiwa | -->
+    <arg name="iiwa_ns" default="iiwa" doc="The unique iiwa namespace."/>
     <arg name="hardware_interface" default="PositionJointInterface"/>
-    <!-- The is gonna have its nodes/topics under a namespace with the same name. -->
-    <arg name="robot_name" default="iiwa"/>
     <!-- Model of the iiwa to use : iiwa7, iiwa14 -->
     <arg name="model" default="iiwa7"/>
 
@@ -19,18 +15,16 @@
     if we don't remap a new name for `joint_states`, the node `joint_state_publish` will publish and subscribe topic `/joint_states` simultaneously，
     see ![rqt_graph](https://cdn.jsdelivr.net/gh/lyh458/ImageRepo@main/image/1627614796407-1627614796385.png), 
     which may result in some issues, eg. the rate of `/joint_states` will be doubled  -->
-    <remap from="/$(arg iiwa_ns)/joint_states" to="/$(arg iiwa_ns)/iiwa_state/joint_states"/>
-    <include file="$(find iiwa_qbhand_bringup)/launch/iiwa_bringup.launch">
+    <remap from="/$(arg iiwa_ns)/joint_states" to="/$(arg iiwa_ns)/joint_states"/>
+    <include ns="$(arg iiwa_ns)" file="$(find iiwa_qbhand_bringup)/launch/iiwa_bringup.launch">
         <arg name="hardware_interface" value="$(arg hardware_interface)" />
-        <arg name="robot_name" value="$(arg robot_name)" />
-        <arg name="model" value="$(arg model)" />
-        <arg name="robot_ns" value="$(arg robot_ns)" />
         <arg name="iiwa_ns" value="$(arg iiwa_ns)" />
+        <arg name="model" value="$(arg model)" />
     </include>
 
     <!-- Bringup qbhand driver -->
     <!-- For better understanding, remap `control/joint_states` from to `/qbhand_state/joint_states` -->
-    <remap from="/$(arg gripper_ns)/control/joint_states" to="/$(arg gripper_ns)/qbhand_state/joint_states"/>
+    <remap from="/$(arg gripper_ns)/control/joint_states" to="/$(arg gripper_ns)/joint_states"/>
     <include file="$(find iiwa_qbhand_bringup)/launch/qbhand_bringup.launch">
         <arg name="device_name" value="$(arg device_name)" />
         <arg name="robot_namespace" value="$(arg gripper_ns)" />

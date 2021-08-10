@@ -41,18 +41,4 @@
     </include>
   </group>
 
-  <!-- For better understanding, remap `control/joint_states` from to `/qbhand_state/joint_states` -->
-  <!-- vvvvv content of `robot_control_node_bringup.launch`, but remap `control/joint_states` to `/qbhand_state/joint_states` vvvvv -->
-  <!-- <group ns="$(arg robot_namespace)">
-    <param name="control_duration" type="double" value="$(arg control_duration)"/>
-    <rosparam subst_value="true">
-    robot_hardware: $(arg robot_hardware)
-    robot_activate_control: $(arg robot_activate_control)
-    </rosparam>
-    <node name="device_control" pkg="qb_device_control" type="qb_device_default" respawn="false" output="screen" required="true">
-      <remap from="control/joint_states" to="qbhand_state/joint_states"/>
-    </node>
-  </group> -->
-  <!-- ^^^^^ content of `robot_control_node_bringup.launch`, but remap `control/joint_states` to `/qbhand_state/joint_states` ^^^^^ -->
-
 </launch>
