@@ -11,6 +11,10 @@
 - [iiwa_stack](https://github.com/IFL-CAMP/iiwa_stack): ROS integration for the KUKA LBR IIWA R800/R820 (7/14 Kg).
 - [qbhand](https://bitbucket.org/qbrobotics/qbhand-ros/src/production-melodic/):  A package contains the ROS nodes aimed to visualize and control the qbrobotics® qbhand device.
 
+## Supported ROS Distribution
+
+ROS Melodic.
+
 ## Usage
 
 After installing all the dependencies, you can:
